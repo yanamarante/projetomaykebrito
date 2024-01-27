@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/assets/assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.50);
+    --surface-color: rgba(255, 255, 255, 0.10);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/assets/assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.50);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+
+    /* é possivel agrupar todos esses comandos em um único, será feito abaixo...
+
+    background-image: url(./assets/assets/assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover; */
+    /*é feito a inclusao de height100vh para que seja alterado o tamanho do background*/
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+
+}
+
+#container {
+    width: auto;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0px 24px;
+    /*borda é interessante para entender o que está acontecendo dentro da caixa, porém, depois não é necessário.*/
+    /*A sequencia de aplicação de propriedades é de cima direita, baixo, esqueerda, se houverem 4 propriedades.
+    se houver 3 propriedadaes,  será de cima, laterais, baixo.*/
+    /*    margin-right: auto;    margin-right: auto;    alinhar uma caixa com largura fixa */
+    /* remove a altura depois de começar a incluir conteúdo*/
+}
+
+/*profile */
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    /*a altura nao é necessária no CSS, normalmente ela utiliza o conteúdo da página.
+a altura tem que ser fluída. 
+
+existem elementos que são BLOCK e outros INLINE.
+a Diferença é que um elemento block ocupa toda a largura da disponível na tela.
+ALguns elementos são block e outros são inline e por isso não é possivel aplicar algumas regras, 
+como "auto" por exemplo...
+segunda opção para centralizar a imagem do mayke brito sorrindo de camiseta preta
+ display:block;
+ margin: auto; */
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin: top 8px;
+}
+
+/*switch */
+
+/*foi aprendido nessa aula...
+alinhamento e posicionamento.
+de display  block, flex. 
+alinhamento de texto. align-text
+
+ou seja quase toda as maneiras de alinhar elementos.
+au centro, perfeito, etc.
+background, positions absolut, textos, display, elementos block, colocar uma largura fixa neles
+depois automatizar as margens
+*/
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+
+}
+
+#switch button {
+    height: 32px;
+    width: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    animation: slide-back 0.2s ;    
+
+}
+
+#switch button:hover {
+    outline:8px solid var(--highlight-color);
+} 
+
+.light #switch button {
+    animation: slide-in 0.2s forwards;
+}
+
+#switch span {
+    width: 64px;
+    height: 24px;
+    display: block;
+
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+
+ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0, 2s;
+    /*poderia usar o font-weight500 ou utilizar o BOLD que é "negrito" pois sabe-se que acima de 400 sempre 
+    é o bold*/
+    /*blur é embassar e o webkit é um préfixo para alguns navegadores abrirem. */
+
+    /*se fosse display block, poderia ser tag-align:center*/
+    /*o jeito certo é o JEITO QUE RESOLVE*/
+}
+
+/*pseudo-selector também falado como SUDO SELECTOR, ou falso seletor, é o que acontgece quando o 
+mouse passar por cima da caixa enfatizada*/
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0, 2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: var(--highlight-color);
+}
+
+/*rodapé*/
+
+footer {
+
+    font-size: 14px;
+    text-align: center;
+    padding: 24px 0;
+}
+
+/*midia querias */
+/*ajustar a largura minima*/
+/*observe quer o root é identificado com 2 pontos e o light com um ponto apenas.*/
+@media (min-width: 500px) {
+    :root {
+        --bg-url: url(./assets/assets/assets/bg-desktop.jpg)
+    }
+    .light {
+        --bg-url: url(./assets/assets/assets/bg-desktop-light.jpg)
+    }
+}
+
+/* animatção com keyframes, posição inicial e posição final, inserindo a animação no botão .light e no roots*/
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes slide-back {
+    from{
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
