@@ -8,12 +8,12 @@ function toggleMode() {
     //substituir a img
     if (html.classList.contains("light")) {
         //se estiver light mode, adicionar a imagem light
-        img.setAttribute("src", "./assets/assets/assets/avatar-light.png")
-        img.setAttribute("alt", "foto de mayke brito sorrindo de oculos escuro e camiseta preta, fundo azul")
+        img.setAttribute("src", "./assets/assets/assets/fotos yan/avatar-light.png")
+        img.setAttribute("alt", "yan sem barba com traje social sorrindo e com alargador pequeno")
     } else {
         //se estiver sem light mode, manter a imagem normal
-        img.setAttribute("src", "./assets/assets/assets/avatar.png")
-        img.setAttribute("alt", "foto de mayke brito sorrindo de oculos e camiseta preta, barba, fundo amarelo")
+        img.setAttribute("src", "./assets/assets/assets/fotos yan/avatar.png")
+        img.setAttribute("alt", "foto de yanamarante sentado numa cadeira de vime, com barba e camiseta da dlzoutlet")
     }
 
 
